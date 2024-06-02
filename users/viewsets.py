@@ -33,7 +33,7 @@ class UserViewSet(ModelViewSet):
     
 class FriendRequestViewSet(ModelViewSet):
     """
-    handle friend request.
+    handle friend request..
     """
     queryset  = FriendRequest.objects.all()
     # permission_classes = UserPermissions
