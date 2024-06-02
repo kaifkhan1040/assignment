@@ -1,0 +1,42 @@
+
+{% load crispy_forms_tags %}
+{% block content %}
+<h1> Comment </h1>
+
+<p> <a href="#"> <strong> <span> username</span> </strong>{{post.auther}} </a>
+
+    
+  </p>
+  <br>
+  <div><strong>massage</strong> {{post.body}}</div>
+  <br>
+  <div> <strong>date</strong> {{post.created_on}}</div>
+  
+  
+  <hr>
+  <div>
+    <div class="container">
+      <form action="" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <a href="/post/"class=" btn btn-primary"> back feed</a>
+        <input type="submit" class="btn btn-success mt-3" style="color: rgb(13, 255, 0);" value="comment">
+      </form>
+
+
+
+    </div>
+    <hr>
+    {% for comment in comments %}
+<div> <a href="#"> <strong> <span> username</span> </strong>{{comment.author}} </a></div>
+
+
+{{comment.id}}
+<div><strong>massage</strong> {{comment.post}}</div>
+
+<br>
+<div><strong>massage</strong> {{comment.txt}}</div>
+<br>
+<div> <strong>date</strong> {{comment.date}}
+    {% endfor %}
+{% endblock %}

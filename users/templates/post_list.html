@@ -1,0 +1,42 @@
+
+{% load crispy_forms_tags %}
+{% block content %}
+<ul>
+    
+   
+    
+    </ul>
+<h1>post </h1>
+<div>
+    <div class="container">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            
+            
+            
+            <input type="submit" style="color: rgb(13, 255, 0);" value="Send Message">
+        </form>
+        
+        
+        
+    </div>
+</div>
+<div>
+    {% for post in post_list %}
+    <p><a style="text-decoration: none" class="text-primary" href="#">@{{ post.author }}</a> {{ post.created_on }}</p>
+    <div class="d-flex flex-row">
+       {{post.body}}
+       
+       
+    </div>
+    {{post.id}}
+   
+    
+
+        
+</div>
+    <hr>
+    {% endfor %}
+
+{% endblock %}
